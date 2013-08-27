@@ -1,0 +1,9 @@
+com.ibm.bpm.sce.autotest
+com.ibm.bpm.sce.exceptions
+com.ibm.bpm.sce.imagebuilder
+com.ibm.sce.deck.commands
+com.ibm.sce.deck.exceptions
+com.ibm.sce.deck.resources
+com.ibm.sce.deck.tools
+com.ibm.sce.deck.tools.ssh
+com.ibm.sce.middlewares
