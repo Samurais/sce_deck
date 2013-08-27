@@ -1,0 +1,6 @@
+Testsuite: com.ibm.sce.deck.tools.ManagedLoggerTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+
+Testcase: testInfo took 0.001 sec
+Testcase: testDebug took 0 sec
+Testcase: testErr took 0 sec

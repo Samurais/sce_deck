@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="all">
+	<appender name="all" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/hailiang/sce/logs/all.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="3" />
+		<param name="MaxFileSize" value="10240" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c{2} - %m%n" />
+		</layout>
+	</appender>
+	<appender name="info" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/hailiang/sce/logs/info.log" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="info"/>
+		<param name="MaxFileSize" value="10240" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c{2} - %m%n" />
+		</layout>
+	</appender>
+	<appender name="debug" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/hailiang/sce/logs/debug.log" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="debug"/>
+		<param name="MaxFileSize" value="10240" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c{2} - %m%n" />
+		</layout>
+	</appender>
+	<appender name="error" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/hailiang/sce/logs/error.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="10240" />
+		<param name="Threshold" value="error"/>
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c{2} - %m%n" />
+		</layout>
+	</appender>
+	<logger name="INFO">
+		<level value="info" />
+		<appender-ref ref="info" />
+	</logger>
+	<logger name="DEBUG">
+		<level value="debug" />
+		<appender-ref ref="debug" />
+	</logger>
+	<logger name="ERROR">
+		<level value="error" />
+		<appender-ref ref="error" />
+	</logger>
+	<root>
+		<appender-ref ref="all" />
+	</root>
+</log4j:configuration>

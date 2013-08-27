@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<core:topology xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:analysisDeploy="http://www.ibm.com/ccl/soa/deploy/analysis/1.0.0/" xmlns:constraint="http://www.ibm.com/ccl/soa/deploy/core/constraint/1.0.0/" xmlns:core="http://www.ibm.com/ccl/soa/deploy/core/1.0.0/" xmlns:db2Deploy="http://www.ibm.com/ccl/soa/deploy/db2/1.0.0/" xmlns:devcloud="http://www.ibm.com/ccl/soa/deploy/devcloud/1.0.0/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generic="http://www.ibm.com/ccl/soa/deploy/generic/1.0.0/" xmlns:genericsoftware="http://www.ibm.com/ccl/soa/deploy/genericsoftware/1.0.0/" xmlns:ihs="http://www.ibm.com/ccl/soa/deploy/ihs/1.0.0/" xmlns:operationDeploy="http://www.ibm.com/ccl/soa/deploy/operation/1.0.0/" xmlns:os="http://www.ibm.com/ccl/soa/deploy/os/1.0.0/" xmlns:server="http://www.ibm.com/ccl/soa/deploy/server/1.0.0/" xmlns:storage="http://www.ibm.com/ccl/soa/deploy/storage/1.0.0/" uuid="_e5pQwRaiEeKrcZ_EJSUkXw" description="&lt;p>Created on Monday, October 15, 2012 4:29:45 AM EDT&lt;/p>" displayName="BPMAdv85" name="BPMAdv85" decoratorSemantic="com.ibm.ccl.soa.deploy.exec" namespace="">
+  <server:unit.serverUnit uuid="_suhU4BatEeKrcZ_EJSUkXw" displayName="64 bit System" name="ServerUnit_606121" conceptual="false" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <server:capability.server uuid="_suhU4RatEeKrcZ_EJSUkXw" displayName="Server" name="Server" linkType="any" cpuArchitectureWidth="64-bit"/>
+    <core:link.hosting uuid="_KzF8YBjKEeKrcZ_EJSUkXw" name="ServerUnit_606121HostsWindowsOperatingSystemUnit_693950" source="#/ServerUnit_606121" target="#/WindowsOperatingSystemUnit_693950"/>
+  </server:unit.serverUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_suhU4xatEeKrcZ_EJSUkXw" displayName="" name="DB2DatabaseUnit_606121" goalInstallState="installed" initInstallState="installed">
+    <db2Deploy:capability.db2Database uuid="_suhU5BatEeKrcZ_EJSUkXw" displayName="BPMDB" name="DB2 Database" linkType="any" dbName="BPMDB"/>
+    <core:requirement uuid="_suhU5RatEeKrcZ_EJSUkXw" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <genericsoftware:unit.softwarePatchUnit uuid="_suhU5hatEeKrcZ_EJSUkXw" displayName="IBM WebSphere Application Server V8.5.0.2" name="SoftwarePatchUnit_606121" conceptual="false" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwarePatch uuid="_suhU5xatEeKrcZ_EJSUkXw" name="SoftwarePatch" linkType="any" patchID="WebSphere Application Server V8.0.0.5"/>
+    <genericsoftware:capability.version uuid="_suhU6BatEeKrcZ_EJSUkXw" name="Version" linkType="any" majorVersion="0" modifier="0" release="0"/>
+    <core:requirement uuid="_suhU6RatEeKrcZ_EJSUkXw" name="Host on an Operating System" dmoType="core:Capability" linkType="hosting" use="required"/>
+    <core:requirement uuid="_suhU6hatEeKrcZ_EJSUkXw" displayName="May Have Related File Content" name="r0" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+  </genericsoftware:unit.softwarePatchUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_suh78BatEeKrcZ_EJSUkXw" displayName="" name="DB2DatabaseUnit_606121_1" goalInstallState="installed" initInstallState="installed">
+    <db2Deploy:capability.db2Database uuid="_suh78RatEeKrcZ_EJSUkXw" displayName="DB2 Database" name="DB2 Database" linkType="any" dbName="CMNDB"/>
+    <core:requirement uuid="_suh78hatEeKrcZ_EJSUkXw" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <db2Deploy:unit.db2SystemUnit uuid="_suijABatEeKrcZ_EJSUkXw" displayName="DB2 Enterprise Server V10.1" name="DB2SystemUnit_606121" goalInstallState="installed" initInstallState="installed">
+    <db2Deploy:capability.db2JdbcDriver uuid="_suijARatEeKrcZ_EJSUkXw" displayName="DB2 Legacy CLI-based Type 2 JDBC Driver" name="DB2 Legacy CLI-based Type 2 JDBC Driver" linkType="dependency" classname="COM.ibm.db2.jdbc.DB2ConnectionPoolDataSource" classpath="c:\cloud\driver.jar" jdbcType="4"/>
+    <db2Deploy:capability.db2System uuid="_suijAxatEeKrcZ_EJSUkXw" displayName="DB2 Installation" name="DB2 System" linkType="any" productName="DB2 Enterprise Server V10.1" db2Version="10.1"/>
+    <db2Deploy:capability.db2System uuid="_lJlFUAOVEeOgUaBX1lq0xg" displayName="Provides db2.DB2System" name="DB2System_672874" linkType="dependency" db2Version="10.1"/>
+    <core:requirement uuid="_suijBBatEeKrcZ_EJSUkXw" displayName="Operating System" mutable="true" name="Operating System" dmoType="os:OperatingSystem" linkType="hosting"/>
+    <core:link.hosting uuid="_suijBRatEeKrcZ_EJSUkXw" name="DB2SystemUnit_350234HostsDB2InstanceUnit_583421" source="#/DB2SystemUnit_606121" target="#/DB2InstanceUnit_606121"/>
+  </db2Deploy:unit.db2SystemUnit>
+  <db2Deploy:unit.db2InstanceUnit uuid="_suijBhatEeKrcZ_EJSUkXw" displayName="BPMINST" name="DB2InstanceUnit_606121" goalInstallState="installed" initInstallState="installed">
+    <db2Deploy:capability.db2Instance uuid="_suijBxatEeKrcZ_EJSUkXw" displayName="DB2 Instance" name="DB2 Instance" linkType="any" db2InstanceName="BPMINST" db2Version="10.1" autoStart="false" hostname="Windows Server 2008 R2" password="felGX/lZDMtCDy5n4PUbxss=" port="50000" username="bpmadmin">
+      <core:attributeMetaData uuid="_suijCBatEeKrcZ_EJSUkXw" attributeName="password" encrypted="true"/>
+    </db2Deploy:capability.db2Instance>
+    <os:capability.portConsumer uuid="_suijCRatEeKrcZ_EJSUkXw" displayName="Port Consumer" name="Port Consumer" linkType="any"/>
+    <core:requirement uuid="_suijChatEeKrcZ_EJSUkXw" displayName="DB2 User" mutable="true" name="DB2 User" dmoType="os:User" linkType="dependency">
+      <core:link.dependency uuid="_iyEzIBjMEeKrcZ_EJSUkXw" name="DB2 UserToWindowsLocalUser" source="#/DB2InstanceUnit_606121/DB2 User" target="#/WindowsLocalUserUnit_152314/WindowsLocalUser"/>
+    </core:requirement>
+    <core:requirement uuid="_suijDBatEeKrcZ_EJSUkXw" displayName="DB2 Installation" mutable="true" name="DB2 System" dmoType="db2Deploy:DB2System" linkType="hosting"/>
+    <core:link.hosting uuid="_suijDRatEeKrcZ_EJSUkXw" name="DB2InstanceHostsportConfiguration" source="#/DB2InstanceUnit_606121" target="#/PortConfigUnit_606122"/>
+    <core:link.hosting uuid="_suijDhatEeKrcZ_EJSUkXw" name="hl_870609" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_606121"/>
+    <core:link.hosting uuid="_suijDxatEeKrcZ_EJSUkXw" name="hl_895109" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_606121_2"/>
+    <core:link.hosting uuid="_suijEBatEeKrcZ_EJSUkXw" name="hl_972671" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_606121_1"/>
+    <core:link.hosting uuid="_yWaBEAOXEeOgUaBX1lq0xg" name="hl_620513" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_620511"/>
+    <core:link.hosting uuid="_5VYlYAOXEeOgUaBX1lq0xg" name="hl_667382" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_667378"/>
+    <core:link.hosting uuid="_8aIIwAOXEeOgUaBX1lq0xg" name="hl_688012" source="#/DB2InstanceUnit_606121" target="#/DB2DatabaseUnit_688008"/>
+  </db2Deploy:unit.db2InstanceUnit>
+  <genericsoftware:unit.softwareInstallUnit uuid="_suijGBatEeKrcZ_EJSUkXw" displayName="IBM Business Process Manager Advanced V8.5" name="SoftwareInstallUnit_606121" conceptual="false" configurationUnit="false" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwareInstall uuid="_suijGRatEeKrcZ_EJSUkXw" displayName="IBM Business Process Manager Advanced V8.5.0.0" name="SoftwareInstall" linkType="any" productName="IBM Business Process Manager Advanced V8.5.0.0"/>
+    <genericsoftware:capability.version uuid="_suijGhatEeKrcZ_EJSUkXw" name="Version" linkType="any" release="5" versionString="8">
+      <core:attributeMetaData uuid="_TRsIoAOTEeOgUaBX1lq0xg" attributeName="modifier" description=""/>
+    </genericsoftware:capability.version>
+    <core:requirement uuid="_suijGxatEeKrcZ_EJSUkXw" name="Host on an Operating System" dmoType="os:OperatingSystem" linkType="hosting" use="required"/>
+    <core:requirement uuid="_suijHBatEeKrcZ_EJSUkXw" displayName="May Have Related File Content" name="r0" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+    <core:requirement uuid="_suijHRatEeKrcZ_EJSUkXw" displayName="May Have Related Deployment Units" name="r1" dmoType="analysisDeploy:DeploymentUnit" linkType="member" use="optional"/>
+    <core:requirement uuid="_suijHhatEeKrcZ_EJSUkXw" displayName="Requires db2.DB2System" name="db2.DB2System" dmoType="db2Deploy:DB2System">
+      <core:link.dependency uuid="_suijHxatEeKrcZ_EJSUkXw" name="db2.DB2SystemToDB2 System" source="#/SoftwareInstallUnit_606121/db2.DB2System" target="#/DB2SystemUnit_606121/DB2 System"/>
+    </core:requirement>
+    <core:requirement uuid="_suijIBatEeKrcZ_EJSUkXw" displayName="Requires IBM Installation Manager" name="r2">
+      <core:link.dependency uuid="_suijIRatEeKrcZ_EJSUkXw" name="r2ToVersion" source="#/SoftwareInstallUnit_606121/r2" target="#/SoftwareInstallUnit_606121_1/Version"/>
+    </core:requirement>
+    <core:link.hosting uuid="_suijIhatEeKrcZ_EJSUkXw" name="SoftwareInstallUnit_378015HostsSoftwarePatchUnit_480250" source="#/SoftwareInstallUnit_606121" target="#/SoftwarePatchUnit_606121"/>
+  </genericsoftware:unit.softwareInstallUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_sujKHhatEeKrcZ_EJSUkXw" name="DB2DatabaseUnit_606121_2" goalInstallState="installed" initInstallState="installed">
+    <db2Deploy:capability.db2Database uuid="_sujKHxatEeKrcZ_EJSUkXw" displayName="DB2 Database" name="DB2 Database" linkType="any" dbName="PDWDB"/>
+    <core:requirement uuid="_sujKIBatEeKrcZ_EJSUkXw" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <genericsoftware:unit.softwareInstallUnit uuid="_sujKIRatEeKrcZ_EJSUkXw" displayName="IBM Installation Manager 1.6.2" name="SoftwareInstallUnit_606121_1" conceptual="false" configurationUnit="false" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwareInstall uuid="_sujKIhatEeKrcZ_EJSUkXw" name="SoftwareInstall" linkType="any" ProductId="IBM Installation Manager" productName="IBM Installation Manager"/>
+    <genericsoftware:capability.version uuid="_sujKIxatEeKrcZ_EJSUkXw" name="Version" linkType="any" majorVersion="0" modifier="0" release="0" versionString="1.6.2"/>
+    <core:requirement uuid="_sujKJBatEeKrcZ_EJSUkXw" name="Host on an Operating System" dmoType="os:OperatingSystem" linkType="hosting" use="required"/>
+    <core:requirement uuid="_sujKJRatEeKrcZ_EJSUkXw" displayName="May Have Related File Content" name="r0" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+    <core:requirement uuid="_sujKJhatEeKrcZ_EJSUkXw" displayName="May Have Related Deployment Units" name="r1" dmoType="analysisDeploy:DeploymentUnit" linkType="member" use="optional"/>
+  </genericsoftware:unit.softwareInstallUnit>
+  <os:unit.portConfigUnit uuid="_sujKLhatEeKrcZ_EJSUkXw" displayName="Port Configuration" name="PortConfigUnit_606122" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <os:capability.port uuid="_sujKLxatEeKrcZ_EJSUkXw" displayName="instanceConnectionPort" name="instanceConnectionPort" linkType="dependency" port="50000" portName="instanceConnectionPort" transportLayerProtocol="TCP">
+      <core:attributeMetaData uuid="_sujKMBatEeKrcZ_EJSUkXw" attributeName="portName" mutable="false"/>
+    </os:capability.port>
+    <core:requirement uuid="_sujKMRatEeKrcZ_EJSUkXw" displayName="PortConsumer" name="PortConsumer" dmoType="os:PortConsumer" linkType="hosting"/>
+  </os:unit.portConfigUnit>
+  <genericsoftware:unit.softwareInstallUnit uuid="_pWkV0BdWEeKrcZ_EJSUkXw" displayName="IBM Process Designer 8.5" name="SoftwareInstallUnit_168429" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwareInstall uuid="_pWkV0RdWEeKrcZ_EJSUkXw" name="software" linkType="any" productName="IBM Process Designer" publisher=""/>
+    <genericsoftware:capability.version uuid="_pWkV0hdWEeKrcZ_EJSUkXw" name="version" linkType="any" majorVersion="0" modifier="0" release="0" versionString="8.5.0.0"/>
+    <core:requirement uuid="_pWkV0xdWEeKrcZ_EJSUkXw" name="host" dmoType="os:OperatingSystem" linkType="hosting" use="required"/>
+    <core:requirement uuid="_pWkV1BdWEeKrcZ_EJSUkXw" name="files" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+    <core:requirement uuid="_pWkV1RdWEeKrcZ_EJSUkXw" displayName="Require IM" name="r0">
+      <core:link.dependency uuid="_xzvWcBdWEeKrcZ_EJSUkXw" name="r0ToVersion" source="#/SoftwareInstallUnit_168429/r0" target="#/SoftwareInstallUnit_606121_1/Version"/>
+    </core:requirement>
+  </genericsoftware:unit.softwareInstallUnit>
+  <os:unit.windowsOperatingSystemUnit uuid="_Egf88BjKEeKrcZ_EJSUkXw" displayName="Windows Server 2008 R2" name="WindowsOperatingSystemUnit_693950" goalInstallState="installed" initInstallState="installed">
+    <os:capability.windowsOperatingSystem uuid="_Egf88RjKEeKrcZ_EJSUkXw" displayName="Windows Server 2008" name="WindowsServer2008" linkType="any" hostname="Windows Server 2008 R2" kernelVersion="5.2" os.type="Windows" os.version="2008"/>
+    <os:capability.windowsDirectory uuid="_Egf88hjKEeKrcZ_EJSUkXw" displayName="directory" name="directory" linkType="any" FixedPath="C:\">
+      <core:attributeMetaData uuid="_Egf88xjKEeKrcZ_EJSUkXw" attributeName="FixedPath" mutable="false"/>
+    </os:capability.windowsDirectory>
+    <core:requirement uuid="_Egf89BjKEeKrcZ_EJSUkXw" displayName="Server" mutable="true" name="Server" dmoType="server:Server" linkType="hosting">
+      <constraint:constraint.equals uuid="_Egf89RjKEeKrcZ_EJSUkXw" displayName="cpuArchitecture" name="cpuArchitecture" attributeName="cpuArchitecture" value="intel"/>
+    </core:requirement>
+    <core:requirement uuid="_Egf89hjKEeKrcZ_EJSUkXw" displayName="May have a File System" name="filesystemReq" dmoType="os:FileSystemUnit" linkType="member" use="optional">
+      <constraint:constraint.memberCardinality uuid="_Egf89xjKEeKrcZ_EJSUkXw" name="memberCardinality"/>
+    </core:requirement>
+    <core:link.hosting uuid="_Egf8-BjKEeKrcZ_EJSUkXw" name="WindowsServer2008HostsAdministrators" source="#/WindowsOperatingSystemUnit_693950" target="#/WindowsLocalGroupUnit_693950"/>
+    <core:link.hosting uuid="_Egf8_BjKEeKrcZ_EJSUkXw" name="WindowsServer2008HostsAdministrator" source="#/WindowsOperatingSystemUnit_693950" target="#/WindowsLocalUserUnit_693951"/>
+    <core:link.hosting uuid="_M1Kh0BjKEeKrcZ_EJSUkXw" name="WindowsOperatingSystemUnit_693950HostsDB2SystemUnit_606121" source="#/WindowsOperatingSystemUnit_693950" target="#/DB2SystemUnit_606121"/>
+    <core:link.hosting uuid="_hJqOYBjNEeKrcZ_EJSUkXw" name="WindowsOperatingSystemUnit_693950HostsSoftwareInstallUnit_606121_1" source="#/WindowsOperatingSystemUnit_693950" target="#/SoftwareInstallUnit_606121_1"/>
+    <core:link.hosting uuid="_pLJYkBjNEeKrcZ_EJSUkXw" name="WindowsOperatingSystemUnit_693950HostsSoftwareInstallUnit_168429" source="#/WindowsOperatingSystemUnit_693950" target="#/SoftwareInstallUnit_168429"/>
+    <core:link.hosting uuid="_sv8VABjNEeKrcZ_EJSUkXw" name="WindowsOperatingSystemUnit_693950HostsSoftwareInstallUnit_606121" source="#/WindowsOperatingSystemUnit_693950" target="#/SoftwareInstallUnit_606121"/>
+    <core:link.member uuid="_FXpmwBkfEeK5e_D7kgy1AQ" name="WindowsOperatingSystemUnit_693950ContainsWindowsFileSystemUnit_206948" source="#/WindowsOperatingSystemUnit_693950" target="#/WindowsFileSystemUnit_206948"/>
+    <core:link.hosting uuid="_EKkjEAOUEeOgUaBX1lq0xg" name="WindowsOperatingSystemUnit_693950HostsSoftwareInstallUnit_40878" source="#/WindowsOperatingSystemUnit_693950" target="#/SoftwareInstallUnit_40878"/>
+  </os:unit.windowsOperatingSystemUnit>
+  <os:unit.windowsLocalGroup uuid="_EggkABjKEeKrcZ_EJSUkXw" name="WindowsLocalGroupUnit_693950" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <os:capability.windowsLocalGroup uuid="_EggkARjKEeKrcZ_EJSUkXw" name="Administrators" linkType="dependency" groupName="Administrators"/>
+    <core:requirement uuid="_EghLEBjKEeKrcZ_EJSUkXw" displayName="UserGroupMembership" mutable="true" name="UserGroupMembership" dmoType="os:WindowsLocalUserUnit" linkType="member">
+      <constraint:constraint.memberCardinality uuid="_EghLERjKEeKrcZ_EJSUkXw" name="memberCardinalityConstraint"/>
+    </core:requirement>
+    <core:requirement uuid="_EghLEhjKEeKrcZ_EJSUkXw" displayName="Windows Operating System" mutable="true" name="WindowsOperatingSystem" dmoType="os:WindowsOperatingSystem" linkType="hosting">
+      <constraint:constraint.equals uuid="_EghLExjKEeKrcZ_EJSUkXw" displayName="osType" name="osType" attributeName="osType" value="Windows"/>
+    </core:requirement>
+    <core:link.member uuid="_EghLFBjKEeKrcZ_EJSUkXw" name="AdministratorsContainsAdministrator" source="#/WindowsLocalGroupUnit_693950" target="#/WindowsLocalUserUnit_693951"/>
+    <core:link.member uuid="_Iz3aIBjLEeKrcZ_EJSUkXw" name="ml_152322" source="#/WindowsLocalGroupUnit_693950" target="#/WindowsLocalUserUnit_152314"/>
+    <core:link.member uuid="_4gxM0BjPEeKrcZ_EJSUkXw" name="ml_190429" source="#/WindowsLocalGroupUnit_693950" target="#/WindowsLocalUserUnit_190420"/>
+  </os:unit.windowsLocalGroup>
+  <os:unit.windowsLocalUser uuid="_EghLFRjKEeKrcZ_EJSUkXw" name="WindowsLocalUserUnit_693951" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <os:capability.windowsLocalUser uuid="_EghLFhjKEeKrcZ_EJSUkXw" name="WindowsLocalUser" linkType="dependency" userId="Administrator" userPassword="felGX/lZDMtCDy5n4PUbxss=">
+      <core:attributeMetaData uuid="_EghLFxjKEeKrcZ_EJSUkXw" attributeName="userPassword" encrypted="true"/>
+    </os:capability.windowsLocalUser>
+    <core:requirement uuid="_EghLGBjKEeKrcZ_EJSUkXw" displayName="Windows Operating System" mutable="true" name="WindowsOperatingSystem" dmoType="os:WindowsOperatingSystem" linkType="hosting">
+      <constraint:constraint.equals uuid="_EghLGRjKEeKrcZ_EJSUkXw" displayName="osType" name="osType" attributeName="osType" value="Windows"/>
+    </core:requirement>
+    <core:requirement uuid="_EghLGhjKEeKrcZ_EJSUkXw" displayName="UserGroupMembership" mutable="true" name="UserGroupMembership" dmoType="os:WindowsLocalGroupUnit" linkType="member">
+      <constraint:constraint.groupCardinality uuid="_EghLGxjKEeKrcZ_EJSUkXw" name="groupCardinalityConstraint"/>
+    </core:requirement>
+  </os:unit.windowsLocalUser>
+  <os:unit.windowsLocalUser uuid="_IzyhoBjLEeKrcZ_EJSUkXw" displayName="DBADMIN" name="WindowsLocalUserUnit_152314" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <os:capability.windowsLocalUser uuid="_IzyhoRjLEeKrcZ_EJSUkXw" name="WindowsLocalUser" linkType="dependency" userId="bpmadmin" userPassword="felGX/lZDMtCDy5n4PUbxss=">
+      <core:attributeMetaData uuid="_IzyhohjLEeKrcZ_EJSUkXw" attributeName="userPassword" encrypted="true"/>
+    </os:capability.windowsLocalUser>
+    <core:requirement uuid="_IzyhoxjLEeKrcZ_EJSUkXw" displayName="Windows Operating System" mutable="true" name="WindowsOperatingSystem" dmoType="os:WindowsOperatingSystem" linkType="hosting">
+      <constraint:constraint.equals uuid="_IzyhpBjLEeKrcZ_EJSUkXw" displayName="osType" name="osType" attributeName="osType" value="Windows"/>
+    </core:requirement>
+    <core:requirement uuid="_IzyhpRjLEeKrcZ_EJSUkXw" displayName="UserGroupMembership" mutable="true" name="UserGroupMembership" dmoType="os:WindowsLocalGroupUnit" linkType="member">
+      <constraint:constraint.groupCardinality uuid="_IzyhphjLEeKrcZ_EJSUkXw" name="groupCardinalityConstraint"/>
+    </core:requirement>
+  </os:unit.windowsLocalUser>
+  <os:unit.windowsLocalUser uuid="_4gsUUBjPEeKrcZ_EJSUkXw" displayName="BPMADMIN" name="WindowsLocalUserUnit_190420" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <os:capability.windowsLocalUser uuid="_4gsUURjPEeKrcZ_EJSUkXw" name="WindowsLocalUser" linkType="dependency" userId="BPMADMIN" userPassword="felGX/lZDMtCDy5n4PUbxss=">
+      <core:attributeMetaData uuid="_4gsUUhjPEeKrcZ_EJSUkXw" attributeName="userPassword" encrypted="true"/>
+    </os:capability.windowsLocalUser>
+    <core:requirement uuid="_4gsUUxjPEeKrcZ_EJSUkXw" displayName="Windows Operating System" mutable="true" name="WindowsOperatingSystem" dmoType="os:WindowsOperatingSystem" linkType="hosting">
+      <constraint:constraint.equals uuid="_4gsUVBjPEeKrcZ_EJSUkXw" displayName="osType" name="osType" attributeName="osType" value="Windows"/>
+    </core:requirement>
+    <core:requirement uuid="_4gsUVRjPEeKrcZ_EJSUkXw" displayName="UserGroupMembership" mutable="true" name="UserGroupMembership" dmoType="os:WindowsLocalGroupUnit" linkType="member">
+      <constraint:constraint.groupCardinality uuid="_4gsUVhjPEeKrcZ_EJSUkXw" name="groupCardinalityConstraint"/>
+    </core:requirement>
+  </os:unit.windowsLocalUser>
+  <os:unit.windowsFileSystemUnit uuid="_FXkuQBkfEeK5e_D7kgy1AQ" displayName="C:" name="WindowsFileSystemUnit_206948" conceptual="false" configurationUnit="true" goalInstallState="installed" initInstallState="installed" publishIntent="do_not_publish">
+    <os:capability.windowsFileSystem uuid="_FXkuQRkfEeK5e_D7kgy1AQ" name="WindowsFileSystem" linkType="any" MountPoint="C:">
+      <core:extendedAttribute uuid="_5NQcwAOaEeOgUaBX1lq0xg" name="Location">
+        <core:data xsi:type="ecore:EString" uuid="_L1udcBkfEeK5e_D7kgy1AQ"></core:data>
+      </core:extendedAttribute>
+      <core:extendedAttribute uuid="_5NQcwQOaEeOgUaBX1lq0xg" name="VolumeId">
+        <core:data xsi:type="ecore:EString" uuid="_QUnqoRkfEeK5e_D7kgy1AQ"></core:data>
+      </core:extendedAttribute>
+    </os:capability.windowsFileSystem>
+    <core:requirement uuid="_FXkuQhkfEeK5e_D7kgy1AQ" displayName="Host on a StorageVolume or DiskPartition" mutable="true" name="hostingReq" linkType="hosting" use="optional">
+      <constraint:constraint.or uuid="_FXkuQxkfEeK5e_D7kgy1AQ" name="orConstraint">
+        <constraint:constraint.type uuid="_FXkuRBkfEeK5e_D7kgy1AQ" name="typeStorageVolume" dmoType="storage:StorageVolume"/>
+        <constraint:constraint.type uuid="_FXkuRRkfEeK5e_D7kgy1AQ" name="typeDiskPartition" dmoType="storage:DiskPartition"/>
+      </constraint:constraint.or>
+    </core:requirement>
+    <core:requirement uuid="_FXkuRhkfEeK5e_D7kgy1AQ" displayName="Member of an Operating System" mutable="true" name="memberReq" dmoType="os:OperatingSystemUnit" linkType="member">
+      <constraint:constraint.groupCardinality uuid="_FXkuRxkfEeK5e_D7kgy1AQ" name="groupCardinality"/>
+    </core:requirement>
+  </os:unit.windowsFileSystemUnit>
+  <operationDeploy:unit.operationUnit uuid="_N7aXkBkfEeK5e_D7kgy1AQ" description="" displayName="C:Unit" name="OperationUnit_264386">
+    <operationDeploy:capability.operation uuid="_N7aXkRkfEeK5e_D7kgy1AQ" displayName="C:" name="C:" linkType="any" operationId="C:" operationName="C:"/>
+    <operationDeploy:capability.operationResults uuid="_N7aXkhkfEeK5e_D7kgy1AQ" displayName="C:_Results" name="C:_Results" linkType="any"/>
+    <core:requirement uuid="_N7aXkxkfEeK5e_D7kgy1AQ" name="Requirement_264392" dmoType="os:OperatingSystem" linkType="hosting" use="optional"/>
+    <core:requirement uuid="_N7aXlBkfEeK5e_D7kgy1AQ" name="Requirement_264392_1" dmoType="os:User" linkType="dependency" use="optional"/>
+    <core:requirement uuid="_N7aXlRkfEeK5e_D7kgy1AQ" name="Requirement_264392_2" linkType="member">
+      <constraint:constraint.memberCardinality uuid="_N7aXlhkfEeK5e_D7kgy1AQ" name="MemberCardinalityConstraint" maxValue="unbounded" minValue="0"/>
+    </core:requirement>
+  </operationDeploy:unit.operationUnit>
+  <core:unit uuid="_ywbakP24EeKgUaBX1lq0xg" displayName="DevCloud Image" name="DeveloperCloudVirtualImageUnit_606121">
+    <core:capability uuid="_ywdPwv24EeKgUaBX1lq0xg" displayName="DevCloud Image" name="DevCloudImage">
+      <core:extendedAttribute uuid="_5NRD0AOaEeOgUaBX1lq0xg" name="imageId">
+        <core:data xsi:type="ecore:EString" uuid="_ywdPx_24EeKgUaBX1lq0xg"></core:data>
+      </core:extendedAttribute>
+      <core:extendedAttribute uuid="_5NRD0QOaEeOgUaBX1lq0xg" name="quantity">
+        <core:data xsi:type="ecore:EString" uuid="_ywdPyf24EeKgUaBX1lq0xg">1</core:data>
+      </core:extendedAttribute>
+    </core:capability>
+    <core:requirement uuid="_suhU7RatEeKrcZ_EJSUkXw" name="HostingReq" linkType="hosting" use="optional"/>
+    <core:requirement uuid="_suhU7hatEeKrcZ_EJSUkXw" displayName="Server" name="r0" dmoType="server:ServerUnit" linkType="member">
+      <constraint:constraint.memberCardinality uuid="_suhU7xatEeKrcZ_EJSUkXw" name="c_4939" maxValue="1" minValue="1"/>
+    </core:requirement>
+    <core:requirement uuid="_suhU8BatEeKrcZ_EJSUkXw" displayName="Any" name="r1" dmoType="core:Unit" linkType="member" use="optional"/>
+    <core:requirement uuid="_6QnhMBjMEeKrcZ_EJSUkXw" displayName="Must associate a developer cloud user to use when provisioning this image." name="imageUser" dmoType="devcloud:DeveloperCloudUser" linkType="dependency" use="optional"/>
+    <core:link.member uuid="_suhU8RatEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_787953ContainsServerUnit_548187" target="#/ServerUnit_606121"/>
+    <core:link.member uuid="_suhU8xatEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_787953ContainsDB2SystemUnit_350234" target="#/DB2SystemUnit_606121"/>
+    <core:link.member uuid="_suhU9BatEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_787953ContainsSoftwareInstallUnit_378015" target="#/SoftwareInstallUnit_606121"/>
+    <core:link.member uuid="_suhU9RatEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_787953ContainsSoftwareInstallUnit_233077" target="#/SoftwareInstallUnit_606121_1"/>
+    <core:link.member uuid="_pWp1YBdWEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_606121ContainsSoftwareInstallUnit_168429" target="#/SoftwareInstallUnit_168429"/>
+    <core:link.member uuid="_Egt_YBjKEeKrcZ_EJSUkXw" name="DeveloperCloudVirtualImageUnit_606121ContainsWindowsOperatingSystemUnit_693950" target="#/WindowsOperatingSystemUnit_693950"/>
+    <core:link.member uuid="_K16DYAN4EeOgUaBX1lq0xg" name="DeveloperCloudVirtualImageUnit_606121ContainsSoftwareInstallUnit_40878" source="#/DeveloperCloudVirtualImageUnit_606121" target="#/SoftwareInstallUnit_40878"/>
+  </core:unit>
+  <genericsoftware:unit.softwareInstallUnit uuid="_K07L8AN4EeOgUaBX1lq0xg" displayName="IBM Integration Designer 8.5" name="SoftwareInstallUnit_40878" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwareInstall uuid="_K07L8QN4EeOgUaBX1lq0xg" name="software" linkType="any" productName="IBM Integration Designer" publisher=""/>
+    <genericsoftware:capability.version uuid="_K07L8gN4EeOgUaBX1lq0xg" name="version" linkType="any" majorVersion="0" modifier="0" release="0" versionString="8.5.0.0"/>
+    <core:requirement uuid="_K07L8wN4EeOgUaBX1lq0xg" name="host" dmoType="os:OperatingSystem" linkType="hosting" use="required"/>
+    <core:requirement uuid="_K07L9AN4EeOgUaBX1lq0xg" name="files" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+    <core:requirement uuid="_K07L9QN4EeOgUaBX1lq0xg" displayName="Require IM" name="r0">
+      <core:link.dependency uuid="_J9w-0AOWEeOgUaBX1lq0xg" name="r0ToVersion" source="#/SoftwareInstallUnit_40878/r0" target="#/SoftwareInstallUnit_606121_1/Version"/>
+    </core:requirement>
+    <core:requirement uuid="_iN0e0AOVEeOgUaBX1lq0xg" displayName="Requires db2.DB2System" name="db2.DB2System" dmoType="db2Deploy:DB2System">
+      <core:link.dependency uuid="_KS2PQAOcEeOgUaBX1lq0xg" name="db2.DB2SystemToDB2System_672874" source="#/SoftwareInstallUnit_40878/db2.DB2System" target="#/DB2SystemUnit_606121/DB2System_672874"/>
+    </core:requirement>
+    <core:requirement uuid="_iiThEAOVEeOgUaBX1lq0xg" displayName="Requires db2.DB2System" name="db2.DB2System1" dmoType="db2Deploy:DB2System">
+      <core:link.dependency uuid="_mqEAoAOVEeOgUaBX1lq0xg" name="db2.DB2System1ToDB2System_672874" source="#/SoftwareInstallUnit_40878/db2.DB2System1" target="#/DB2SystemUnit_606121/DB2System_672874"/>
+    </core:requirement>
+    <core:link.hosting uuid="_Aro2sAOXEeOgUaBX1lq0xg" name="SoftwareInstallUnit_40878HostsSoftwarePatchUnit_287186" source="#/SoftwareInstallUnit_40878" target="#/SoftwarePatchUnit_287186"/>
+  </genericsoftware:unit.softwareInstallUnit>
+  <genericsoftware:unit.softwarePatchUnit uuid="_ArjXIAOXEeOgUaBX1lq0xg" description="&lt;p>This a standalone IBM BPM Process Server 8.5 for unit test.&lt;/p>" displayName="Unit Test Environment" name="SoftwarePatchUnit_287186" conceptual="false" configurationUnit="true" goalInstallState="installed" initInstallState="installed">
+    <genericsoftware:capability.softwarePatch uuid="_ArjXIQOXEeOgUaBX1lq0xg" name="SoftwarePatch" linkType="any" patchID="IBM BPM Process Server 8.5"/>
+    <genericsoftware:capability.version uuid="_ArjXIgOXEeOgUaBX1lq0xg" name="Version" linkType="any" majorVersion="0" modifier="0" release="0"/>
+    <core:requirement uuid="_ArjXIwOXEeOgUaBX1lq0xg" name="Host on an Operating System" dmoType="core:Capability" linkType="hosting" use="required"/>
+    <core:requirement uuid="_ArjXJAOXEeOgUaBX1lq0xg" displayName="May Have Related File Content" name="r0" dmoType="os:FileSystemContentUnit" linkType="member" use="optional"/>
+  </genericsoftware:unit.softwarePatchUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_yWYy8AOXEeOgUaBX1lq0xg" displayName="QBPMDB" name="DB2DatabaseUnit_620511">
+    <db2Deploy:capability.db2Database uuid="_yWYy8QOXEeOgUaBX1lq0xg" displayName="DB2 Database" name="DB2 Database" linkType="any" dbName="QBPMDB"/>
+    <core:requirement uuid="_yWYy8gOXEeOgUaBX1lq0xg" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting" use="optional"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_5VWJIAOXEeOgUaBX1lq0xg" displayName="QCMNDB" name="DB2DatabaseUnit_667378">
+    <db2Deploy:capability.db2Database uuid="_5VWJIQOXEeOgUaBX1lq0xg" displayName="DB2 Database" name="DB2 Database" linkType="any" dbName="QCMNDB"/>
+    <core:requirement uuid="_5VWJIgOXEeOgUaBX1lq0xg" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting" use="optional"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <db2Deploy:unit.db2DatabaseUnit uuid="_8aFsgAOXEeOgUaBX1lq0xg" displayName="QPDWDB" name="DB2DatabaseUnit_688008">
+    <db2Deploy:capability.db2Database uuid="_8aGTkAOXEeOgUaBX1lq0xg" displayName="DB2 Database" name="DB2 Database" linkType="any" dbName="QPDWDB"/>
+    <core:requirement uuid="_8aGTkQOXEeOgUaBX1lq0xg" displayName="DB2 Instance" mutable="true" name="DB2 Instance" dmoType="db2Deploy:DB2Instance" linkType="hosting" use="optional"/>
+  </db2Deploy:unit.db2DatabaseUnit>
+  <core:contract.explicit uuid="_e5pQwhaiEeKrcZ_EJSUkXw" displayName="Make All Units Public-Editable By Default" name="ExplicitContract_788876" defaultConceptualPolicy="public_editable" defaultPolicy="public_editable">
+    <core:exported.unit uuid="_mqK0IBjOEeKrcZ_EJSUkXw" configurable="true" linkable="true" path="/ServerUnit_606121">
+      <core:exported.capability uuid="_mqK0IRjOEeKrcZ_EJSUkXw" configurable="true" linkable="true" path="/ServerUnit_606121/Server"/>
+    </core:exported.unit>
+    <core:exported.unit uuid="_2Dh2QAObEeOgUaBX1lq0xg" configurable="true" linkable="true" name="DB2SystemUnit_606121" path="/DB2SystemUnit_606121">
+      <core:exported.capability uuid="_2DidUAObEeOgUaBX1lq0xg" configurable="true" linkable="true" path="/DB2SystemUnit_606121/DB2System_672874"/>
+    </core:exported.unit>
+  </core:contract.explicit>
+</core:topology>

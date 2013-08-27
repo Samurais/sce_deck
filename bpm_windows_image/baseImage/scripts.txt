@@ -1,0 +1,3 @@
+powershell.ps1=C:\cloud\powershell.ps1
+run_at_first_prov.txt=C:\cloud\FirstProvisionStartup.bat
+

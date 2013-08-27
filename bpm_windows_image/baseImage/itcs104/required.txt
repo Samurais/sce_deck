@@ -1,0 +1,40 @@
+# This file may be used to verify certain patches are installed
+# on a specific Windows version.
+
+# The format of the field should be entered as:
+#
+# 'PATCHID' => "3.5 3.51 4.0 5.0 5.1",
+#
+# where the number represents the Microsoft OS Version Number
+#
+# 3.5  -> Windows NT 3.5
+# 3.51 -> Windows NT 3.51
+# 4.0  -> Windows NT 4.0
+# 5.0  -> Windows 2000
+# 5.1  -> Windows XP
+# 5.2  -> Windows 2003 Server
+
+# Example:
+#
+# %required = (
+#
+# # Microsoft Security Bulletin MS03-007: Unchecked buffer in Windows component
+# # could cause web server compromise (815021)
+#
+#'Q815021' => "4.0 5.0 5.1",
+#
+# # Microsoft Security Bulletin MS03-033: Unchecked Buffer in MDAC function
+# # could enable system compromise (823718)
+#
+#'Q823718' => "5.0 5.1",
+#
+# # Fake Test Only Bulletin
+#
+#'Q000001' => "3.5 3.51 4.0 5.0 5.1",
+#
+# );
+
+%required = (
+
+);
+

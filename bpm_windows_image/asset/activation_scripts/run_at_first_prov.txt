@@ -1,0 +1,22 @@
+@REM ****************************************************************
+@REM 
+@REM  THIS PRODUCT CONTAINS RESTRICTED MATERIALS OF IBM
+@REM 
+@REM  5724-M24
+@REM 
+@REM  (C) Copyright IBM Corp. 2012 All Rights Reserved. 
+@REM 
+@REM  US Government Users Restricted Rights - Use, duplication or
+@REM  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+@REM 
+@REM ****************************************************************
+
+@echo off
+@REM Run activate script at first provision
+
+cd C:\cloud
+echo [%date% %time%] Starting provision ... > activation.log
+Powershell -ExecutionPolicy Unrestricted -Command C:\cloud\activate.ps1 >>activation.log 2>&1
+echo [%date% %time%] Provision completed successfully >> activation.log
+
+

@@ -1,0 +1,7 @@
+activate.txt=C:\cloud\activate.ps1
+run_at_first_prov.txt=C:\cloud\FirstProvisionStartup.bat
+tuneBPMProfile.py=C:\cloud\tuneBPMProfile.py
+set_hostname.py=C:\cloud\set_hostname.py
+config_bpm_util.py=C:\cloud\config_bpm_util.py
+DE_SingleCluster_Template.properties=C:\cloud\DE_SingleCluster_Template.properties
+dropUTEdb.bat=C:\cloud\dropUTEdb.bat

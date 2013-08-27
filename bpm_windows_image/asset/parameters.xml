@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="parameters.xsd">  
+  <field name="UserName" label="Windows Account" type="string" knownPattern="compoundRules" patternErrorMessage="Invalid Windows Account."
+    description="Specify the administrative user for administering Windows instance. Do not use the following administrative IDs: Guest, Administrator, or bpmadmin. This field is not case sensitive.">
+    <compoundRules>
+      <![CDATA[
+  		[		 	 	
+		 	{
+		 		"name":"Windows User name restriction RegularExpression",
+			    "description": "Username can't contain special char",
+			    "type": "RegularExpression",
+			    "value":"^[^\\\\\\\/\\\[\\\]\\\"\\\:\\\;\\\|\\\%\\\<\\\'\\\ \\\>\\\+\\\=\\\,\\\?\\\*\\\@]{1,20}$"
+		 	},		 	
+			{
+		 		"name":"Windows User name restriction",
+			    "description": "User cannot be Guest or Administrator or bpmadmin(is not case sensitive)",
+			    "type": "isNotRestriction",
+			    "caseSensitive":false,
+			    "array":["Guest", "Administrator", "bpmadmin"]
+			}
+	     ]
+  		]]>  		
+    </compoundRules>
+  </field>
+  <field name="Password" label="Windows Password" type="password" knownPattern="compoundRules" 
+    patternErrorMessage="Invalid Window Password:&lt;br/&gt;
+    Passwords cannot contain the user&apos;s account name or more than two consecutive characters of the user&apos;s full name.
+    &lt;br/&gt;Passwords must be at least 8 characters in length.
+    &lt;br/&gt;Passwords must contain characters from three of the following four categories:
+    &lt;br/&gt;1.	English uppercase characters (A through Z).
+    &lt;br/&gt;2.	English lowercase characters (a through z).
+    &lt;br/&gt;3.	Base 10 digits (0 through 9).
+    &lt;br/&gt;4.	Non-alphabetic characters (for example, !, $, &#35;, %). "
+    description="">
+    <compoundRules>
+      <![CDATA[
+  		[
+		 	{
+			    "name":"User account name restriction",
+			    "description": "Passwords cannot contain the user's account name",
+			    "type": "notContainRestriction",
+			    "value":"$UserName"
+		 	},
+		 	{
+		 		"name":"User full name restriction",
+			    "description": "Passwords cannot contain the user&apos;s account name or more than two consecutive characters of the user&apos;s full name.",
+			    "type": "notInArrayRestriction",
+			    "value":"2",
+			    "array":["admin", "Administrator", "bpmadmin"]
+		 	},		 	
+		 	{
+		 		"name":"length restriction",
+			    "description": "Length of password must be between 8 and 20 characters",
+			    "type": "RegularExpression",
+			    "value":"^.{8,20}$"
+		 	},
+		 	{
+		 		"name":"charactersRestriction",
+			    "description": "Passwords must contain characters from three of the following four categories",
+			    "type": "charactersRestriction",
+			    "value":"3",
+			    "charactersPatterns":["English_Uppercase_Characters","English_Lowercase_Characters","Digits","Non_Alphabetic_Characters"] 	  
+			}
+	     ]
+  		]]>  		
+    </compoundRules>
+  </field>
+  <field name="BPMAdminUser" label="BPM Admin User" type="string" knownPattern="compoundRules" patternErrorMessage="Invalid Windows Account."
+    description="Specify the administrative user for administering BPM processes on the instance. Do not use the following administrative IDs: Guest, Administrator, or bpmadmin. This field is not case sensitive.">
+    <compoundRules>
+      <![CDATA[
+  		[		 	 	
+		 	{
+		 		"name":"Windows User name restriction RegularExpression",
+			    "description": "Username cannot contain special character",
+			    "type": "RegularExpression",
+			    "value":"^[^\\\\\\\/\\\[\\\]\\\"\\\:\\\;\\\|\\\%\\\<\\\'\\\ \\\>\\\+\\\=\\\,\\\?\\\*\\\@]{1,20}$"
+		 	},		 	
+			{
+		 		"name":"Windows User name restriction",
+			    "description": "User cannot be Guest, Administrator, or bpmadmin (not case sensitive)",
+			    "type": "isNotRestriction",
+			    "caseSensitive":false,
+			    "array":["Guest", "Administrator", "bpmadmin"]
+			}
+	     ]
+  		]]>  		
+    </compoundRules>
+  </field>
+  <field name="BPMAdminPassword" label="BPM Admin Password" type="password" knownPattern="compoundRules" 
+    patternErrorMessage="Invalid Window Password:&lt;br/&gt;
+    Passwords cannot contain the user&apos;s account name or more than two consecutive characters of the user&apos;s full name.
+    &lt;br/&gt;Passwords must be at least 8 characters in length.
+    &lt;br/&gt;Passwords must contain characters from three of the following four categories:
+    &lt;br/&gt;1.	English uppercase characters (A through Z).
+    &lt;br/&gt;2.	English lowercase characters (a through z).
+    &lt;br/&gt;3.	Base 10 digits (0 through 9).
+    &lt;br/&gt;4.	Non-alphabetic characters (for example, !, $, &#35;, %). "
+    description="Specify a password for the BPM administrative ID.">
+    <compoundRules>
+      <![CDATA[
+  		[
+		 	{
+			    "name":"User account name restriction",
+			    "description": "Passwords cannot contain the user's account name",
+			    "type": "notContainRestriction",
+			    "value":"$UserName"
+		 	},
+		 	{
+		 		"name":"User full name restriction",
+			    "description": "Passwords cannot contain more than two consecutive characters of the user's full name",
+			    "type": "notInArrayRestriction",
+			    "value":"2",
+			    "array":["admin", "Administrator", "bpmadmin"]
+		 	},		 	
+		 	{
+		 		"name":"length restriction",
+			    "description": "Length of password must be between 8 and 20 characters",
+			    "type": "RegularExpression",
+			    "value":"^.{8,20}$"
+		 	},
+		 	{
+		 		"name":"charactersRestriction",
+			    "description": "Passwords must contain characters from three of the following four categories",
+			    "type": "charactersRestriction",
+			    "value":"3",
+			    "charactersPatterns":["English_Uppercase_Characters","English_Lowercase_Characters","Digits","Non_Alphabetic_Characters"] 	  
+			}
+	     ]
+  		]]>  		
+    </compoundRules>
+  </field>  
+  <field name="DB2Password" label="DB2 Password" type="password" knownPattern="compoundRules" 
+    patternErrorMessage="Invalid Window Password:&lt;br/&gt;
+    Passwords cannot contain the user&apos;s account name or more than two consecutive characters of the user&apos;s full name.
+    &lt;br/&gt;Passwords must be at least 8 characters in length.
+    &lt;br/&gt;Passwords must contain characters from three of the following four categories:
+    &lt;br/&gt;1.	English uppercase characters (A through Z).
+    &lt;br/&gt;2.	English lowercase characters (a through z).
+    &lt;br/&gt;3.	Base 10 digits (0 through 9).
+    &lt;br/&gt;4.	Non-alphabetic characters (for example, !, $, &#35;, %). "
+    description="The password for the DB2 instance owner and DAS user (bpmadmin)">
+    <compoundRules>
+      <![CDATA[
+  		[
+		 	{
+			    "name":"User account name restriction",
+			    "description": "Passwords cannot contain the user's account name",
+			    "type": "notContainRestriction",
+			    "value":"$UserName"
+		 	},
+		 	{
+		 		"name":"User full name restriction",
+			    "description": "Passwords cannot contain the more than two consecutive characters of the user&apos;s full name",
+			    "type": "notInArrayRestriction",
+			    "value":"2",
+			    "array":["admin", "Administrator", "bpmadmin"]
+		 	},		 	
+		 	{
+		 		"name":"length restriction",
+			    "description": "Length of password must be between 8 and 20 characters",
+			    "type": "RegularExpression",
+			    "value":"^.{8,20}$"
+		 	},
+		 	{
+		 		"name":"charactersRestriction",
+			    "description": "Passwords must contain characters from three of the following four categories",
+			    "type": "charactersRestriction",
+			    "value":"3",
+			    "charactersPatterns":["English_Uppercase_Characters","English_Lowercase_Characters","Digits","Non_Alphabetic_Characters"] 	  
+			}
+	     ]
+  		]]>  		
+    </compoundRules>
+  </field>
+  
+  <field name="EnvironmentType" type="radioGroup" label="Environment Type"
+        description="&lt;input type=&quot;radio&quot; name=&quot;_f_EnvironmentType&quot; value=&quot;Test&quot; onclick=&quot;
+			parameterNodes=this.parentElement.parentElement.parentElement.children;
+			
+			types=this.parentElement.parentElement.children[1].getElementsByTagName(&apos;input&apos;);								
+			for(var i=0;i&lt;types.length;i++){
+				types[i].onclick=function(){				
+					for(var j=0;j&lt;parameterNodes.length;j++){				
+						if(parameterNodes[j].id.indexOf(&apos;ProcessCenterUrl&apos;)&gt;=0){							
+							parameterNodes[j].hidden = false;
+							parameterNodes[j].style.visibility = &apos;visible&apos;;
+							if(lastClickPC)
+								parameterNodes[j].children[1].getElementsByTagName(&apos;input&apos;)[0].value=pcUrlValue;
+						} else if (parameterNodes[j].id.indexOf(&apos;ProcessCenterUserID&apos;)&gt;=0) {
+							parameterNodes[j].hidden = false;
+							parameterNodes[j].style.visibility = &apos;visible&apos;;
+							if(lastClickPC)
+								parameterNodes[j].children[1].getElementsByTagName(&apos;input&apos;)[0].value=pcUserIDValue;
+						} else if (parameterNodes[j].id.indexOf(&apos;ProcessCenterPassword&apos;)&gt;=0) {
+							parameterNodes[j].hidden = false;
+							parameterNodes[j].style.visibility = &apos;visible&apos;;
+							if(lastClickPC)
+								parameterNodes[j].children[1].getElementsByTagName(&apos;input&apos;)[0].value=pcPasswordValue;
+						} else if (parameterNodes[j].id.indexOf(&apos;EnvironmentName&apos;)&gt;=0) {
+							parameterNodes[j].hidden = false;
+							parameterNodes[j].style.visibility = &apos;visible&apos;;
+							if(lastClickPC)
+								parameterNodes[j].children[1].getElementsByTagName(&apos;input&apos;)[0].value=psEnvironmentNameValue;
+						}				
+					}
+					lastClickPC=false;
+				};
+			}
+			
+			for(var i=0;i&lt;parameterNodes.length;i++){				
+				if(parameterNodes[i].id.indexOf(&apos;ProcessCenterUrl&apos;)&gt;=0){					
+					parameterNodes[i].hidden = true;
+					parameterNodes[i].style.visibility = &apos;hidden&apos;;					
+					pcUrlValue=parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value;
+					parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value=&apos;http://localhost:9080&apos;;
+				} else if (parameterNodes[i].id.indexOf(&apos;ProcessCenterUserID&apos;)&gt;=0) {
+					parameterNodes[i].hidden = true;
+					parameterNodes[i].style.visibility = &apos;hidden&apos;;
+					pcUserIDValue=parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value;
+					parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value=&apos;none&apos;;
+				} else if (parameterNodes[i].id.indexOf(&apos;ProcessCenterPassword&apos;)&gt;=0) {
+					parameterNodes[i].hidden = true;
+					parameterNodes[i].style.visibility = &apos;hidden&apos;;
+					pcPasswordValue=parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value;
+					parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value=&apos;nonepassword&apos;;
+				} else if (parameterNodes[i].id.indexOf(&apos;EnvironmentName&apos;)&gt;=0) {
+					parameterNodes[i].hidden = true;
+					parameterNodes[i].style.visibility = &apos;hidden&apos;;
+					psEnvironmentNameValue=parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value;
+					parameterNodes[i].children[1].getElementsByTagName(&apos;input&apos;)[0].value=&apos;none&apos;;
+				}				
+			}
+			lastClickPC=true;
+			
+			&quot;&gt;&lt;font color=&quot;black&quot;&gt;Process Center for Development and Test&lt;/font&gt;&lt;br&gt;Select the environment in which the Server is to be used.">
+       <values>
+          <value>Test</value>
+       </values>
+       <options>
+          <option label="Process Server for Test">Test</option>
+          <option label="Process Server for Stage">Staging</option>
+          <option label="Process Server for Production">Production</option>          
+       </options>
+  </field>
+  
+  <!--Process Center Setting-->
+  <field name="ProcessCenterUrl" type="string" label="Process Center URL"
+        description="The host name and port number of the Process Center, for example: http://myprocesscenter:9080. If https is used, please input the full host name. To use the Process Server offline, specify it as: http://localhost:9080."
+        patternErrorMessage="Invalid Process Center URL. It must be in one of the following formats: http://hostname:port or https://hostname:port."
+        pattern="^(https|http)?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/((\.)?(\?)?=?&amp;?[a-zA-Z0-9_-](\?)?)*)*$">
+       <values>
+          <value>http://localhost:9080</value>
+       </values>
+  </field>
+  <field name="ProcessCenterUserID" type="string" label="Process Center User"
+        description="The user ID that connects to the designated Process Center.">
+  </field>
+  <field name="ProcessCenterPassword" type="password" label="Process Center Password"
+        description="The password for the user ID that connects to the Process Center.">
+  </field>
+  <field name="EnvironmentName" type="string" label="Environment Name"
+        patternErrorMessage="Invalid Environment Name. The environment name must start with a letter, and without white space."
+        pattern="^[a-zA-Z]\w*$"
+        description="The name by which this Process Server will be known to a Process Center user.">
+        <values>
+          <value>ProcessServer</value>
+       </values>
+  </field>   
+  <firewall>
+    <rule>
+      <source>0.0.0.0/0</source>
+      <minport>1</minport>
+      <maxport>65535</maxport>
+    </rule>
+  </firewall>
+</parameters>

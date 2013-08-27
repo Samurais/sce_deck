@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project name="BPMSCEDeck" basedir=".">
+	<property name="project" value="BPMSCEDeck" />
+	<property name="src.main.java" value="${basedir}/src/main/java" />
+	<property name="src.test.java" value="${basedir}/src/test/java" />
+	<property name="ant-test-tempdir" value="${basedir}/ant-test-tempdir" />
+	<property name="src.classes.java" value="${ant-test-tempdir}/java" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="project.version" value="1.0" />
+	<path id="project.lib">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="project.test">
+		<pathelement location="${src.classes.java}" />
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<target name="clean">
+		<echo message=">>> clean ${src.classes.java} temp files." />
+		<delete dir="${src.classes.java}" />
+	</target>
+	<target name="compile" depends="clean">
+		<echo message=">>> compile ${src.main.java}." />
+		<mkdir dir="${src.classes.java}" />
+		<javac destdir="${src.classes.java}">
+			<classpath refid="project.lib" />
+			<src path="${src.main.java}" />
+		</javac>
+		<echo message=">>> compile ${src.test.java}." />
+		<javac destdir="${src.classes.java}">
+			<classpath refid="project.test" />
+			<src path="${src.test.java}" />
+		</javac>
+	</target>
+	<target name="build-standard-image" depends="compile">
+		<echo message=">>> build a standard image" />
+		<junit printsummary="yes" haltonfailure="yes">
+			<classpath refid="project.test" />
+			<formatter type="plain" />
+			<test name="com.ibm.bpm.sce.imagebuilder.StandardWindowsImageBuilderTest" haltonfailure="no" outfile="result" />
+		</junit>
+		<delete dir="${ant-test-tempdir}" />
+	</target>
+	<target name="build-dev-image" depends="compile">
+		<echo message=">>> build a dev image" />
+		<junit printsummary="yes" haltonfailure="yes">
+			<classpath refid="project.test" />
+			<formatter type="plain" />
+			<test name="com.ibm.bpm.sce.imagebuilder.DevWindowsImageBuilderTest" haltonfailure="no" outfile="result" />
+		</junit>
+		<delete dir="${ant-test-tempdir}" />
+	</target>
+</project>
