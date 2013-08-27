@@ -56,6 +56,11 @@ BPM85SCEDeck::
 
 Nothing to specific as the test case can be run in eclipse or ant as usual .
 
+- run maven 
+
+Read usr/integrate.sh to find more.
+You may run like this - **nohup SCEDeck/usr/integrate.sh -n -t >>$builing_deck_log 2>&1 &**
+
 - site
 
 `SCE Deck Site <http://idlerx.cn.ibm.com:8080/sce-deck/>`_ ::
@@ -77,4 +82,3 @@ Nothing to specific as the test case can be run in eclipse or ant as usual .
 	
 2. The configuration needs to be customize in order to use your own account ,keyname and log policy,but don't check in it.
 	
-3. The job building whole project is started on every Odd Clock like 6:00,8:00 and 10:00. So , any testcase you want to run by SCE Deck, you may check in it accordingly. 
